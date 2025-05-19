@@ -4,7 +4,7 @@ import { ChevronDownIcon } from "lucide-react";
 
 const Inbox = () => {
   return (
-    <div className="h-screen flex-1 px-4 py-2">
+    <div className="flex-1.5 h-screen px-4 py-2">
       <h2 className="mb-8 text-lg font-bold">Your inbox</h2>
       <div className="mb-4 flex justify-between font-semibold">
         <div className="flex items-center">
@@ -45,7 +45,7 @@ const Inbox = () => {
                   ? `${message.content.slice(0, 26)}...`
                   : message.content}
               </p>
-              <p className="absolute right-0 bottom-2 text-xs font-semibold">
+              <p className="absolute right-2 bottom-2 text-xs font-semibold">
                 {message.time}
               </p>
             </div>
