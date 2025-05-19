@@ -22,7 +22,7 @@ const Inbox = () => {
           // MESSAGE
           <li
             key={message.id}
-            className={`relative ml-[-0.8rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""}`}
+            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""}`}
           >
             <div
               className={`flex h-10 w-10 items-center justify-center rounded-full font-bold text-white ${message.color}`}
@@ -45,7 +45,7 @@ const Inbox = () => {
                   ? `${message.content.slice(0, 26)}...`
                   : message.content}
               </p>
-              <p className="absolute right-2 bottom-2 text-xs font-semibold">
+              <p className="absolute right-4 bottom-4 text-xs font-semibold">
                 {message.time}
               </p>
             </div>
