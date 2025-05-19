@@ -3,7 +3,7 @@ export const messages = [
     id: 1,
     source: "Github",
     content: "Hello, I have a question about the project",
-    sender: "John",
+    sender: "Luis Easton",
     time: "25m",
     read: false,
     color: "bg-indigo-400",

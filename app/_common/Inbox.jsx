@@ -22,7 +22,7 @@ const Inbox = () => {
           // MESSAGE
           <li
             key={message.id}
-            className={`ml-[-0.8rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""}`}
+            className={`relative ml-[-0.8rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""}`}
           >
             <div
               className={`flex h-10 w-10 items-center justify-center rounded-full font-bold text-white ${message.color}`}
@@ -32,14 +32,21 @@ const Inbox = () => {
                 : message.source.charAt(0)}
             </div>
             <div>
-              <h3 className="text-md">
-                {message.sender ? message.sender + " - " : message.sender}
+              <h3
+                className={`text-md ${message.read ? "font-regular" : "font-bold"}`}
+              >
+                {message.sender
+                  ? message.sender.slice(0, message.sender.indexOf(" ")) + " - "
+                  : ""}
                 {message.source}
               </h3>
               <p>
-                {message.content.length > 24
-                  ? `${message.content.slice(0, 24)}...`
+                {message.content.length > 26
+                  ? `${message.content.slice(0, 26)}...`
                   : message.content}
+              </p>
+              <p className="absolute right-0 bottom-2 text-xs font-semibold">
+                {message.time}
               </p>
             </div>
           </li>
