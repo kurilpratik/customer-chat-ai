@@ -2,6 +2,7 @@ import React from "react";
 import { messages } from "../data/data";
 import { ChevronDownIcon } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Inbox = ({ onSelectMessage, selectedMessage }) => {
   return (
@@ -9,8 +10,10 @@ const Inbox = ({ onSelectMessage, selectedMessage }) => {
       <nav className="mb-8 flex justify-between">
         <h2 className="text-lg font-bold">Your inbox</h2>
         <div className="sm:hidden">
-          <ModeToggle /> + other icons
+          <ModeToggle />
+          <SidebarTrigger />
         </div>
+        <SidebarTrigger />
       </nav>
 
       <div className="mb-4 flex justify-between font-semibold">
