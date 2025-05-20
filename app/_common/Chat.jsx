@@ -7,12 +7,30 @@ import { ModeToggle } from "@/components/mode-toggle";
 const Chat = ({ selectedMessage }) => {
   if (!selectedMessage) {
     return (
-      <div className="mx-4 flex h-screen w-full flex-3 flex-col items-center justify-center py-2 text-gray-500">
-        <MessageSquare className="mb-4 h-16 w-16" />
-        <h3 className="mb-2 text-xl font-semibold">No conversation selected</h3>
-        <p className="text-center">
-          Select a conversation from your inbox to start chatting
-        </p>
+      <div className="mx-4 h-[80vh] w-full flex-3 py-2">
+        <nav className="mb-8 flex justify-end">
+          {/* <h3 className="text-lg font-bold">
+            {selectedMessage.sender || selectedMessage.source}
+          </h3> */}
+          <div className="flex gap-2">
+            <Button variant="outline" size="icon">
+              <Ellipsis />
+            </Button>
+            <ModeToggle />
+            <Button>
+              <PanelBottomClose /> Close
+            </Button>
+          </div>
+        </nav>
+        <div className="flex h-full w-full flex-col items-center justify-center py-2 text-gray-500">
+          <MessageSquare className="mb-4 h-16 w-16" />
+          <h3 className="mb-2 text-xl font-semibold">
+            No conversation selected
+          </h3>
+          <p className="text-center">
+            Select a conversation from your inbox to start chatting
+          </p>
+        </div>
       </div>
     );
   }
