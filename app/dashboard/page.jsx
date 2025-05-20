@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [selectedMessage, setSelectedMessage] = useState(null);
 
   return (
-    <div className="flex h-screen w-screen flex-row">
+    <div className="flex h-screen w-screen flex-col sm:flex-row">
       <Inbox
         onSelectMessage={setSelectedMessage}
         selectedMessage={selectedMessage}

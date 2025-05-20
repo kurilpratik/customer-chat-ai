@@ -1,11 +1,18 @@
 import React from "react";
 import { messages } from "../data/data";
 import { ChevronDownIcon } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const Inbox = ({ onSelectMessage, selectedMessage }) => {
   return (
-    <div className="flex-1.5 h-screen px-4 py-2">
-      <h2 className="mb-8 text-lg font-bold">Your inbox</h2>
+    <div className="flex-1.5 h-screen min-h-screen px-4 py-2">
+      <nav className="mb-8 flex justify-between">
+        <h2 className="text-lg font-bold">Your inbox</h2>
+        <div className="sm:hidden">
+          <ModeToggle /> + other icons
+        </div>
+      </nav>
+
       <div className="mb-4 flex justify-between font-semibold">
         <div className="flex items-center">
           <span className="pr-2">5</span> Open{" "}
