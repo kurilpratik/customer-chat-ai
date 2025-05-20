@@ -2,7 +2,7 @@ import React from "react";
 import { messages } from "../data/data";
 import { ChevronDownIcon } from "lucide-react";
 
-const Inbox = () => {
+const Inbox = ({ onSelectMessage, selectedMessage }) => {
   return (
     <div className="flex-1.5 h-screen px-4 py-2">
       <h2 className="mb-8 text-lg font-bold">Your inbox</h2>
@@ -22,7 +22,10 @@ const Inbox = () => {
           // MESSAGE
           <li
             key={message.id}
-            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""}`}
+            onClick={() => onSelectMessage(message)}
+            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""} ${
+              selectedMessage?.id === message.id ? "bg-indigo-100" : ""
+            }`}
           >
             <div
               className={`flex h-10 w-10 items-center justify-center rounded-full font-bold text-white ${message.color}`}
