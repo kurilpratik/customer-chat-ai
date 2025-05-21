@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 
 import { Store, ArrowUp } from "lucide-react";
+import Details from "./Details";
 
 const Panel = () => {
   return (
@@ -20,22 +21,11 @@ const Panel = () => {
           </TabsList>
         </div>
         <TabsContent value="aicopilot" className="h-screen w-full bg-red-200">
-          <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-r from-blue-200 to-pink-200 opacity-40 blur-2xl"></div>
-
-          <div className="absolute right-0 bottom-4 left-0 mx-4">
-            <div className="relative">
-              <Input
-                type="text"
-                placeholder="Ask a question..."
-                className="h-12 bg-white pr-12"
-              />
-              <div className="absolute top-1/2 right-3 -translate-y-1/2">
-                <ArrowUp className="h-5 w-5 cursor-pointer text-gray-500" />
-              </div>
-            </div>
-          </div>
+          <Copilot />
         </TabsContent>
-        <TabsContent value="details">Change your password here.</TabsContent>
+        <TabsContent value="details">
+          <Details />
+        </TabsContent>
       </Tabs>
       {/* <div className="absolute bottom-0 left-0 h-screen w-full bg-gradient-to-b from-transparent to-gray-200 bg-blend-multiply"></div> */}
     </div>
