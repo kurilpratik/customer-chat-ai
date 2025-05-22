@@ -1,9 +1,8 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
 
-import { Store, ArrowUp } from "lucide-react";
 import Details from "./Details";
+import Copilot from "./Copilot";
 
 const Panel = () => {
   return (
