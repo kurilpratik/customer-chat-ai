@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SquarePen, ChevronDown } from "lucide-react";
+import { useChatInput } from "../context/ChatInputContext";
 
 const SUGGESTED_QUESTIONS = [
   "How do I get a refund?",
@@ -20,6 +21,7 @@ const Copilot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const chatEndRef = useRef(null);
+  const { setChatInput } = useChatInput();
 
   React.useEffect(() => {
     if (chatEndRef.current) {
@@ -39,7 +41,7 @@ const Copilot = () => {
         sender: "Fin",
         type: "fin",
         researching: true,
-        content: `Please note: <br /> We can only refund orders placed within the last 60 days, and your items must meet our requirements for condition to be returned. Please check when you placed your order before proceeding. <br /><br />Once I've checked these details, if everything looks OK, I will send a returns QR code which you can use to post the items back to us. Your refund will be automatically issued once you put it in the post.`,
+        content: `Please note: <br />We can only refund orders placed within the last 60 days, and your items must meet our requirements for condition to be returned. Please check when you placed your order before proceeding. <br /><br />Once I've checked these details, if everything looks OK, I will send a returns QR code which you can use to post the items back to us. Your refund will be automatically issued once you put it in the post.`,
         sources,
         totalSources: 15,
       },
@@ -93,12 +95,16 @@ const Copilot = () => {
                         <Button
                           variant="outline"
                           className="mt-2 flex w-full gap-2 border-gray-300 bg-white/80 text-gray-700"
+                          onClick={() =>
+                            setChatInput(
+                              msg.content.replace(/<br\s*\/?>/gi, "\n"),
+                            )
+                          }
                         >
                           <div className="flex w-[90%] items-center justify-center gap-2">
                             <SquarePen className="h-4 w-4" />
                             Add to composer
                           </div>
-
                           <ChevronDown className="h-4 w-4" />
                         </Button>
                       </div>

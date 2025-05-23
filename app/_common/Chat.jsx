@@ -13,8 +13,11 @@ import {
 import { ModeToggle } from "@/components/mode-toggle";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
+import { useChatInput } from "../context/ChatInputContext";
 
 const Chat = ({ selectedMessage }) => {
+  const { chatInput, setChatInput } = useChatInput();
+
   if (!selectedMessage) {
     return (
       <div className="mx-4 h-[80vh] w-full flex-3 py-2">
@@ -94,6 +97,8 @@ const Chat = ({ selectedMessage }) => {
       <div className="absolute right-0 bottom-4 left-0 mx-4 shadow-xl">
         <div className="relative">
           <Textarea
+            value={chatInput}
+            onChange={(e) => setChatInput(e.target.value)}
             type="text"
             // placeholder="Use Cmd K for shortcuts"
             className="h-28 justify-start bg-white pr-12"
