@@ -21,7 +21,7 @@ const Details = () => {
   return (
     <section className="flex flex-col gap-2 px-8 py-4">
       <div className="flex flex-col gap-4">
-        <div className="flex w-2/3 justify-between">
+        <div className="flex w-full justify-between sm:w-2/3">
           <p className="font-semibold text-gray-500">Assignee</p>
           <div className="flex items-center gap-2.5 font-medium text-gray-600">
             <img
@@ -32,7 +32,7 @@ const Details = () => {
             Bryan Byrne
           </div>
         </div>
-        <div className="flex w-2/3 justify-between">
+        <div className="flex w-full justify-between sm:w-2/3">
           <p className="font-semibold text-gray-500">Team</p>
           <div className="flex items-center gap-2.5 font-medium text-gray-600">
             <UsersRound className="h-6 w-6" />
@@ -44,7 +44,7 @@ const Details = () => {
       <Collapsible
         open={isOpen}
         onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">LINKS</h4>
@@ -88,7 +88,7 @@ const Details = () => {
       <Collapsible
         // open={isOpen}
         // onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">USER DATA</h4>
@@ -132,7 +132,7 @@ const Details = () => {
       <Collapsible
         // open={isOpen}
         // onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">CONVERSATION ATTRIBUTES</h4>
@@ -176,7 +176,7 @@ const Details = () => {
       <Collapsible
         // open={isOpen}
         // onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">COMPANY DETAILS</h4>
@@ -220,7 +220,7 @@ const Details = () => {
       <Collapsible
         // open={isOpen}
         // onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">SALESFORCE</h4>
@@ -264,7 +264,7 @@ const Details = () => {
       <Collapsible
         // open={isOpen}
         // onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">STRIPE</h4>
@@ -308,7 +308,7 @@ const Details = () => {
       <Collapsible
         // open={isOpen}
         // onOpenChange={setIsOpen}
-        className="w-[350px] space-y-2"
+        className="w-full space-y-2 sm:w-[95%]"
       >
         <div className="flex items-center justify-between space-x-4">
           <h4 className="text-sm font-bold">JIRA FOR TICKETS</h4>
