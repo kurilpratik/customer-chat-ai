@@ -67,14 +67,20 @@ const ChatContent = () => {
         </div>
 
         {/* INPUT  */}
-        <div className="absolute right-0 bottom-[12vh] left-0 mx-4 shadow-xl sm:bottom-4">
+        <div className="absolute right-0 bottom-[12vh] left-0 mx-4 shadow-xl sm:bottom-4 sm:mr-8">
           <div className="relative">
             <Textarea
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
               type="text"
               placeholder="Use Cmd K for shortcuts"
-              className="h-36 justify-start bg-white pt-9 pr-12"
+              className="hide-scrollbar max-h-[24rem] min-h-[9rem] justify-start bg-white pt-9 pr-12 pb-10"
+              onInput={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height =
+                  Math.min(e.target.scrollHeight, 384) + "px";
+                // 384px = 24rem
+              }}
             />
             <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2">
               <MessageSquareText className="h-4 w-4 cursor-pointer text-gray-500" />
