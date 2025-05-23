@@ -4,6 +4,7 @@ import { ChevronDownIcon } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useSelectedMessage } from "../context/SelectedMessageContext";
+import { Button } from "@/components/ui/button";
 
 const Inbox = () => {
   const { selectedMessage, setSelectedMessage } = useSelectedMessage();
@@ -11,11 +12,13 @@ const Inbox = () => {
   return (
     <div className="flex-1.5 h-screen min-h-screen px-4 py-2 sm:min-w-[25%]">
       <nav className="mb-8 flex justify-between">
-        <h2 className="text-lg font-bold">Your inbox</h2>
+        <h2 className="pt-1 text-lg font-bold sm:pt-0">Your inbox</h2>
         <div>
-          <div className="sm:hidden">
+          <div className="flex items-center gap-2 sm:hidden">
             <ModeToggle />
-            <SidebarTrigger />
+            <Button variant="outline" size="icon">
+              <SidebarTrigger />
+            </Button>
           </div>
           <SidebarTrigger className="hidden sm:block" />
         </div>
