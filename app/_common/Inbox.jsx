@@ -9,11 +9,13 @@ const Inbox = ({ onSelectMessage, selectedMessage }) => {
     <div className="flex-1.5 h-screen min-h-screen px-4 py-2">
       <nav className="mb-8 flex justify-between">
         <h2 className="text-lg font-bold">Your inbox</h2>
-        <div className="sm:hidden">
-          <ModeToggle />
-          <SidebarTrigger />
+        <div>
+          <div className="sm:hidden">
+            <ModeToggle />
+            <SidebarTrigger />
+          </div>
+          <SidebarTrigger className="hidden sm:block" />
         </div>
-        <SidebarTrigger />
       </nav>
 
       <div className="mb-4 flex justify-between font-semibold">
