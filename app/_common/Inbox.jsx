@@ -12,7 +12,9 @@ const Inbox = () => {
   return (
     <div className="flex-1.5 h-screen min-h-screen px-4 py-2 sm:min-w-[25%]">
       <nav className="mb-8 flex justify-between">
-        <h2 className="pt-1 text-lg font-bold sm:pt-0">Your inbox</h2>
+        <h2 className="pt-1 text-lg font-bold text-blue-500 sm:pt-0">
+          Beyond<span className="text-gray-600">Chats</span>
+        </h2>
         <div>
           <div className="flex items-center gap-2 sm:hidden">
             <ModeToggle />
@@ -41,7 +43,7 @@ const Inbox = () => {
           <li
             key={message.id}
             onClick={() => setSelectedMessage(message)}
-            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""} ${
+            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-4 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 sm:gap-2 ${message.read ? "opacity-40" : ""} ${
               selectedMessage?.id === message.id ? "bg-indigo-100" : ""
             }`}
           >
