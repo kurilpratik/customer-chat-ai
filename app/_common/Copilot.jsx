@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { SquarePen, ChevronDown } from "lucide-react";
 import { useChatInput } from "../context/ChatInputContext";
 import ArticlePopup from "@/components/ArticlePopup";
+import { motion, AnimatePresence } from "motion/react";
 
 const SUGGESTED_QUESTIONS = [
   "How do I get a refund?",
@@ -87,109 +88,135 @@ const Copilot = () => {
             </div>
           ) : (
             <div className="hide-scrollbar my-2 flex h-[82vh] flex-col gap-6 overflow-y-scroll rounded-md pr-4">
-              {visibleMessages.map((msg, idx) => (
-                <div
-                  key={idx}
-                  className="animate-fade-in"
-                  style={{
-                    animationDelay: `${idx * 0.5}s`,
-                  }}
-                >
-                  {msg.type === "user" ? (
-                    <div className="flex items-start gap-2">
-                      <img
-                        src="https://randomuser.me/api/portraits/women/44.jpg"
-                        alt="You"
-                        className="h-8 w-8 rounded-full object-cover"
-                      />
-                      <div>
-                        <div className="text-sm font-semibold">You</div>
-                        <div className="text-base">{msg.content}</div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex items-start gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white">
-                        <span>F</span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-sm font-semibold">Fin</div>
-                        <div className="mb-2 text-base text-gray-700">
-                          Researching sources I found...
-                        </div>
-                        <div className="mb-3 flex flex-col gap-3 rounded-lg [background-image:linear-gradient(135deg,_#bfdbfe_0%,_#fce7f3_90%,_#ffedd5_100%)] [background-size:100%_100%] [background-position:0_0] px-4 py-4 text-sm">
-                          {msg.content.includes("{article}") ? (
-                            (() => {
-                              const parts = msg.content.split("{article}");
-                              return (
-                                <>
-                                  {parts[0] && (
-                                    <span
-                                      dangerouslySetInnerHTML={{
-                                        __html: parts[0],
-                                      }}
-                                    />
-                                  )}
-                                  <ArticlePopup />
-                                  {parts[1] && (
-                                    <span
-                                      dangerouslySetInnerHTML={{
-                                        __html: parts[1],
-                                      }}
-                                    />
-                                  )}
-                                </>
-                              );
-                            })()
-                          ) : (
-                            <span
-                              dangerouslySetInnerHTML={{ __html: msg.content }}
-                            />
-                          )}
-
-                          <Button
-                            variant="outline"
-                            className="mt-2 flex w-full gap-2 border-gray-300 bg-white/80 text-gray-700"
-                            onClick={() =>
-                              setChatInput(
-                                msg.content.replace(/<br\s*\/?>/gi, "\n"),
-                              )
-                            }
-                          >
-                            <div className="flex w-[90%] items-center justify-center gap-2">
-                              <SquarePen className="h-4 w-4" />
-                              Add to composer
-                            </div>
-                            <ChevronDown className="h-4 w-4" />
-                          </Button>
-                        </div>
-                        <div className="mb-1 text-sm text-gray-500">
-                          {msg.totalSources} relevant sources found
-                        </div>
+              <AnimatePresence>
+                {visibleMessages.map((msg, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.125 + idx * 0.25,
+                      delay: idx * 0.5,
+                      ease: "easeOut",
+                    }}
+                  >
+                    {msg.type === "user" ? (
+                      <div className="flex items-start gap-2">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/44.jpg"
+                          alt="You"
+                          className="h-8 w-8 rounded-full object-cover"
+                        />
                         <div>
-                          {msg.sources.map((src, i) => (
-                            <div
-                              key={i}
-                              className="flex cursor-pointer items-center gap-2 rounded px-2 py-0.5 transition hover:bg-gray-100"
-                            >
-                              <span className="text-lg">{src.icon}</span>
-                              <span className="text-gray-700">{src.title}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="mt-2">
-                          <a
-                            href="#"
-                            className="text-sm font-medium text-blue-600 hover:underline"
-                          >
-                            See all &rarr;
-                          </a>
+                          <div className="text-sm font-semibold">You</div>
+                          <div className="text-base">{msg.content}</div>
                         </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+                    ) : (
+                      <div className="flex items-start gap-2">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white">
+                          <span>F</span>
+                        </div>
+                        {/* FINBOT MESSAGE  */}
+                        <div className="flex-1">
+                          <div className="text-sm font-semibold">Fin</div>
+                          <div className="mb-2 text-base text-gray-700">
+                            Researching sources I found...
+                          </div>
+                          {/* MESSAGE CONTENT  */}
+                          <motion.div
+                            className="mb-3 flex flex-col gap-3 rounded-lg [background-image:linear-gradient(135deg,_#bfdbfe_0%,_#fce7f3_90%,_#ffedd5_100%)] [background-size:100%_100%] [background-position:0_0] px-4 py-4 text-sm"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2 }}
+                          >
+                            {msg.content.includes("{article}") ? (
+                              (() => {
+                                const parts = msg.content.split("{article}");
+                                return (
+                                  <>
+                                    {parts[0] && (
+                                      <span
+                                        dangerouslySetInnerHTML={{
+                                          __html: parts[0],
+                                        }}
+                                      />
+                                    )}
+                                    <ArticlePopup />
+                                    {parts[1] && (
+                                      <span
+                                        dangerouslySetInnerHTML={{
+                                          __html: parts[1],
+                                        }}
+                                      />
+                                    )}
+                                  </>
+                                );
+                              })()
+                            ) : (
+                              <span
+                                dangerouslySetInnerHTML={{
+                                  __html: msg.content,
+                                }}
+                              />
+                            )}
+
+                            <Button
+                              variant="outline"
+                              className="mt-2 flex w-full gap-2 border-gray-300 bg-white/80 text-gray-700"
+                              onClick={() =>
+                                setChatInput(
+                                  msg.content.replace(/<br\s*\/?>/gi, "\n"),
+                                )
+                              }
+                            >
+                              <div className="flex w-[90%] items-center justify-center gap-2">
+                                <SquarePen className="h-4 w-4" />
+                                Add to composer
+                              </div>
+                              <ChevronDown className="h-4 w-4" />
+                            </Button>
+                          </motion.div>
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4 }}
+                          >
+                            <div className="mb-1 text-sm text-gray-500">
+                              {msg.totalSources} relevant sources found
+                            </div>
+                            <div>
+                              {/* LIST OF SOURCES  */}
+                              {msg.sources.map((src, i) => (
+                                <motion.div
+                                  key={i}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.5 + i * 0.1 }}
+                                  className="flex cursor-pointer items-center gap-2 rounded px-2 py-0.5 transition hover:bg-gray-100"
+                                >
+                                  <span className="text-lg">{src.icon}</span>
+                                  <span className="text-gray-700">
+                                    {src.title}
+                                  </span>
+                                </motion.div>
+                              ))}
+                            </div>
+                            <div className="mt-2">
+                              <a
+                                href="#"
+                                className="text-sm font-medium text-blue-600 hover:underline"
+                              >
+                                See all &rarr;
+                              </a>
+                            </div>
+                          </motion.div>
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
               <div ref={chatEndRef} />
             </div>
           )}
@@ -212,23 +239,5 @@ const Copilot = () => {
     </div>
   );
 };
-
-const styles = `
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-  opacity: 0;
-}
-`;
 
 export default Copilot;
