@@ -24,7 +24,7 @@ const ArticlePopup = ({ title, category, author, date, content }) => {
           1
         </div>
       </HoverCardTrigger>
-      <HoverCardContent className="w-sm">
+      <HoverCardContent className="w-sm" align="end">
         <h4 className="mb-2 text-lg font-semibold">{article.title}</h4>
         <div className="mt-2 flex items-center gap-2 pb-3 text-sm text-gray-400">
           <Button variant="outline" className="h-4 w-4 rounded-full">
