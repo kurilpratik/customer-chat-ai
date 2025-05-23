@@ -87,7 +87,7 @@ const Copilot = () => {
               </p>
             </div>
           ) : (
-            <div className="hide-scrollbar my-2 flex h-[82vh] flex-col gap-6 overflow-y-scroll rounded-md pr-4">
+            <div className="hide-scrollbar my-2 flex h-[85dvh] flex-col gap-6 overflow-y-scroll rounded-md pr-4 sm:h-[82vh]">
               <AnimatePresence>
                 {visibleMessages.map((msg, idx) => (
                   <motion.div
