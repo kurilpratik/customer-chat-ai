@@ -24,8 +24,8 @@ const ChatContent = () => {
   let index = selectedMessage.id - 1 || 0;
   return (
     <div>
-      <div className="relative mx-4 h-screen w-full flex-3 py-2">
-        <nav className="mb-8 flex justify-between">
+      <div className="relative h-screen w-full flex-3 px-2 py-1 sm:mx-4 sm:py-2">
+        <nav className="sticky top-0 mb-8 flex justify-between bg-white py-2 sm:relative sm:mx-4">
           <h3 className="text-lg font-bold">
             {selectedMessage.sender || selectedMessage.source}
           </h3>
@@ -42,22 +42,22 @@ const ChatContent = () => {
 
         {/* CHAT */}
 
-        <div className="flex flex-col gap-6 px-6">
+        <div className="flex flex-col gap-6 px-2 sm:px-6">
           {chats[index].map((message) => (
             <div
               key={`index-${message.id}`}
-              className={`flex gap-4 ${message.id % 2 === 0 ? "flex-row-reverse" : ""}`}
+              className={`flex gap-2 sm:gap-4 ${message.id % 2 === 0 ? "flex-row-reverse" : ""}`}
             >
               {/* So that we don't have 2 same keys, we combine it with msg.id eg 3-1,3-2 */}
               <div
-                className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full font-bold text-white ${message.color}`}
+                className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full p-4 font-bold text-white sm:h-10 sm:w-10 sm:p-0 ${message.color}`}
               >
                 {message.sender.charAt(0)}
               </div>
               <div
                 className={`rounded-xl p-4 ${message.id % 2 === 0 ? "bg-indigo-200" : "bg-gray-200"}`}
               >
-                <p className="pb-2 text-sm font-medium dark:text-gray-800">
+                <p className="pb-2 text-xs font-medium sm:text-sm dark:text-gray-800">
                   {message.content}
                 </p>
                 <p className="text-sm">{message.time}</p>

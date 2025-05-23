@@ -72,7 +72,10 @@ const Chat = () => {
           if (!open) setSelectedMessage(null);
         }}
       >
-        <SheetContent side="bottom" className="h-[80vh] overflow-y-auto p-0">
+        <SheetContent
+          side="bottom"
+          className="h-[80vh] w-screen overflow-y-auto p-0"
+        >
           <SheetTitle className="sr-only">
             Chat with {selectedMessage.sender || selectedMessage.source}
           </SheetTitle>
