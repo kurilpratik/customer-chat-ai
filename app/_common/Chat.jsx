@@ -5,15 +5,8 @@ import {
   PanelBottomClose,
   Ellipsis,
   MessageSquare,
-  ChevronDown,
-  Zap,
-  Bookmark,
-  Smile,
-  MessageSquareText,
+  Command,
 } from "lucide-react";
-import { ModeToggle } from "@/components/mode-toggle";
-import { Textarea } from "@/components/ui/textarea";
-import { Separator } from "@/components/ui/separator";
 import { useChatInput } from "../context/ChatInputContext";
 import { useSelectedMessage } from "../context/SelectedMessageContext";
 import {
@@ -42,7 +35,9 @@ const Chat = () => {
             <Button variant="outline" size="icon">
               <Ellipsis />
             </Button>
-            <ModeToggle />
+            <Button variant="outline" size="icon">
+              <Command />
+            </Button>
             <Button>
               <PanelBottomClose /> Close
             </Button>

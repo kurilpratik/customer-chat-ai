@@ -7,6 +7,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ChatInputProvider } from "../context/ChatInputContext";
 import { SelectedMessageProvider } from "../context/SelectedMessageContext";
+import { SuperCommand } from "@/components/SuperCommand";
 
 const Dashboard = () => {
   return (
@@ -18,6 +19,7 @@ const Dashboard = () => {
             <Chat />
             <AppSidebar />
           </div>
+          <SuperCommand />
         </SidebarProvider>
       </SelectedMessageProvider>
     </ChatInputProvider>
