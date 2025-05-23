@@ -38,17 +38,17 @@ const Chat = () => {
             <Button variant="outline" size="icon">
               <Command />
             </Button>
-            <Button>
+            <Button variant={selectedMessage ? "default" : "outline"}>
               <PanelBottomClose /> Close
             </Button>
           </div>
         </nav>
-        <div className="flex h-full w-full flex-col items-center justify-center py-2 text-gray-500">
-          <MessageSquare className="mb-4 h-16 w-16" />
+        <div className="flex h-full w-full flex-col items-center justify-center py-2 text-center text-gray-500">
+          <MessageSquare className="mb-6 h-8 w-8 text-gray-600" />
           <h3 className="mb-2 text-xl font-semibold">
             No conversation selected
           </h3>
-          <p className="text-center">
+          <p className="w-1/2 text-center">
             Select a conversation from your inbox to start chatting
           </p>
         </div>
