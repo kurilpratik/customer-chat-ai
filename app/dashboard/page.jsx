@@ -1,31 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Chat from "../_common/Chat";
 import Inbox from "../_common/Inbox";
-
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ChatInputProvider } from "../context/ChatInputContext";
+import { SelectedMessageProvider } from "../context/SelectedMessageContext";
 
 const Dashboard = () => {
-  const [selectedMessage, setSelectedMessage] = useState(null);
-
   return (
     <ChatInputProvider>
-      <SidebarProvider>
-        <div className="flex h-screen w-screen flex-col sm:flex-row">
-          <Inbox
-            onSelectMessage={setSelectedMessage}
-            selectedMessage={selectedMessage}
-          />
-          <Chat
-            selectedMessage={selectedMessage}
-            onSelectMessage={setSelectedMessage}
-          />
-          <AppSidebar />
-        </div>
-      </SidebarProvider>
+      <SelectedMessageProvider>
+        <SidebarProvider>
+          <div className="flex h-screen w-screen flex-col sm:flex-row">
+            <Inbox />
+            <Chat />
+            <AppSidebar />
+          </div>
+        </SidebarProvider>
+      </SelectedMessageProvider>
     </ChatInputProvider>
   );
 };

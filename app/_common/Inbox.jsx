@@ -3,8 +3,11 @@ import { messages } from "../data/data";
 import { ChevronDownIcon } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useSelectedMessage } from "../context/SelectedMessageContext";
 
-const Inbox = ({ onSelectMessage, selectedMessage }) => {
+const Inbox = () => {
+  const { selectedMessage, setSelectedMessage } = useSelectedMessage();
+
   return (
     <div className="flex-1.5 h-screen min-h-screen px-4 py-2">
       <nav className="mb-8 flex justify-between">
@@ -34,7 +37,7 @@ const Inbox = ({ onSelectMessage, selectedMessage }) => {
           // MESSAGE
           <li
             key={message.id}
-            onClick={() => onSelectMessage(message)}
+            onClick={() => setSelectedMessage(message)}
             className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 ${message.read ? "opacity-40" : ""} ${
               selectedMessage?.id === message.id ? "bg-indigo-100" : ""
             }`}
