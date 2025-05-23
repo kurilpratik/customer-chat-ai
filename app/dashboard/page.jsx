@@ -19,7 +19,10 @@ const Dashboard = () => {
             onSelectMessage={setSelectedMessage}
             selectedMessage={selectedMessage}
           />
-          <Chat selectedMessage={selectedMessage} />
+          <Chat
+            selectedMessage={selectedMessage}
+            onSelectMessage={setSelectedMessage}
+          />
           <AppSidebar />
         </div>
       </SidebarProvider>

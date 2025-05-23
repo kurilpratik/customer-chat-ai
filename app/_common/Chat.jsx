@@ -9,13 +9,14 @@ import {
   Zap,
   Bookmark,
   Smile,
+  MessageSquareText,
 } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { useChatInput } from "../context/ChatInputContext";
 
-const Chat = ({ selectedMessage }) => {
+const Chat = ({ selectedMessage, onSelectMessage }) => {
   const { chatInput, setChatInput } = useChatInput();
 
   if (!selectedMessage) {
@@ -61,7 +62,7 @@ const Chat = ({ selectedMessage }) => {
             <Ellipsis />
           </Button>
           <ModeToggle />
-          <Button>
+          <Button onClick={() => onSelectMessage(null)}>
             <PanelBottomClose /> Close
           </Button>
         </div>
@@ -100,11 +101,16 @@ const Chat = ({ selectedMessage }) => {
             value={chatInput}
             onChange={(e) => setChatInput(e.target.value)}
             type="text"
-            // placeholder="Use Cmd K for shortcuts"
-            className="h-28 justify-start bg-white pr-12"
+            placeholder="Use Cmd K for shortcuts"
+            className="h-36 justify-start bg-white pt-9 pr-12"
           />
-          <div className="absolute right-2 bottom-3 left-2">
-            <div className="flex justify-between">
+          <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2">
+            <MessageSquareText className="h-4 w-4 cursor-pointer text-gray-500" />
+            <p className="text-sm font-semibold">Chat</p>
+            <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
+          </div>
+          <div className="absolute right-2 bottom-0 left-2 pb-2">
+            <div className="flex justify-between bg-white">
               <div className="flex items-center gap-2">
                 <Zap className="h-4 w-4 cursor-pointer text-gray-500" />
                 <Separator orientation="vertical" />
