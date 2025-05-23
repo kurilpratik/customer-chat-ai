@@ -33,7 +33,7 @@ const Chat = () => {
 
   if (!selectedMessage) {
     return (
-      <div className="mx-4 h-[80vh] w-full flex-3 py-2">
+      <div className="mx-4 hidden h-[80vh] w-full flex-3 py-2 sm:block">
         <nav className="mb-8 flex justify-end">
           {/* <h3 className="text-lg font-bold">
             {selectedMessage.sender || selectedMessage.source}
@@ -61,7 +61,7 @@ const Chat = () => {
     );
   }
 
-  let index = selectedMessage.id - 1 || 0;
+  // let index = selectedMessage.id - 1 || 0;
 
   if (isMobile) {
     // On mobile, show the chat as a bottom sheet popup when a message is selected
@@ -71,7 +71,6 @@ const Chat = () => {
         onOpenChange={(open) => {
           if (!open) setSelectedMessage(null);
         }}
-        className="h-[80vh]"
       >
         <SheetContent side="bottom" className="h-[80vh] overflow-y-auto p-0">
           <SheetTitle className="sr-only">
@@ -84,6 +83,7 @@ const Chat = () => {
               ? `${selectedMessage.content.slice(0, 100)}...`
               : selectedMessage.content}
           </SheetDescription>
+          {/* ACTUAL CHAT LOGIC AND JSX INSIDE  */}
           <ChatContent />
         </SheetContent>
       </Sheet>
