@@ -10,8 +10,9 @@ import {
   Bookmark,
   Smile,
   MessageSquareText,
+  PhoneCall,
+  StarIcon,
 } from "lucide-react";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { useChatInput } from "../context/ChatInputContext";
@@ -47,7 +48,12 @@ const ChatContent = () => {
             <Button variant="outline" size="icon">
               <Ellipsis />
             </Button>
-            <ModeToggle />
+            <Button variant="outline" size="icon">
+              <StarIcon />
+            </Button>
+            <Button variant="outline" size="icon">
+              <PhoneCall />
+            </Button>
             <Button onClick={() => setSelectedMessage(null)}>
               <PanelBottomClose /> Close
             </Button>
