@@ -9,7 +9,7 @@ const Inbox = () => {
   const { selectedMessage, setSelectedMessage } = useSelectedMessage();
 
   return (
-    <div className="flex-1.5 h-screen min-h-screen px-4 py-2">
+    <div className="flex-1.5 h-screen min-h-screen px-4 py-2 sm:min-w-[25%]">
       <nav className="mb-8 flex justify-between">
         <h2 className="text-lg font-bold">Your inbox</h2>
         <div>
