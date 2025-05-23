@@ -16,12 +16,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { useChatInput } from "../context/ChatInputContext";
 import { useSelectedMessage } from "../context/SelectedMessageContext";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import SelectedTextPopup from "@/components/SelectedTextPopup";
 
 const ChatContent = () => {
   const { chatInput, setChatInput } = useChatInput();
   const { selectedMessage, setSelectedMessage } = useSelectedMessage();
+  const [selectedText, setSelectedText] = React.useState("");
 
   let index = selectedMessage.id - 1 || 0;
+
+  const handleTextSelection = (e) => {
+    const selection = window.getSelection();
+    const text = selection.toString();
+    setSelectedText(text);
+  };
+
   return (
     <div>
       <div className="relative h-screen w-full flex-3 px-2 py-1 sm:mx-4 sm:py-2">
@@ -69,19 +83,26 @@ const ChatContent = () => {
         {/* INPUT  */}
         <div className="absolute right-0 bottom-[12vh] left-0 mx-4 shadow-xl sm:bottom-4 sm:mr-8">
           <div className="relative">
-            <Textarea
-              value={chatInput}
-              onChange={(e) => setChatInput(e.target.value)}
-              type="text"
-              placeholder="Use Cmd K for shortcuts"
-              className="hide-scrollbar max-h-[24rem] min-h-[9rem] justify-start bg-white pt-9 pr-12 pb-10"
-              onInput={(e) => {
-                e.target.style.height = "auto";
-                e.target.style.height =
-                  Math.min(e.target.scrollHeight, 384) + "px";
-                // 384px = 24rem
-              }}
-            />
+            <HoverCard open={selectedText.length > 0}>
+              <HoverCardTrigger asChild>
+                <Textarea
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  onSelect={handleTextSelection}
+                  type="text"
+                  placeholder="Use Cmd K for shortcuts"
+                  className="hide-scrollbar max-h-[24rem] min-h-[9rem] justify-start bg-white pt-9 pr-12 pb-10"
+                  onInput={(e) => {
+                    e.target.style.height = "auto";
+                    e.target.style.height =
+                      Math.min(e.target.scrollHeight, 384) + "px";
+                  }}
+                />
+              </HoverCardTrigger>
+              <HoverCardContent className="w-76 p-0">
+                <SelectedTextPopup />
+              </HoverCardContent>
+            </HoverCard>
             <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2">
               <MessageSquareText className="h-4 w-4 cursor-pointer text-gray-500" />
               <p className="text-sm font-semibold">Chat</p>
