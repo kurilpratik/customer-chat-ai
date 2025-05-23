@@ -4,6 +4,7 @@ import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SquarePen, ChevronDown } from "lucide-react";
 import { useChatInput } from "../context/ChatInputContext";
+import ArticlePopup from "@/components/ArticlePopup";
 
 const SUGGESTED_QUESTIONS = [
   "How do I get a refund?",
@@ -19,6 +20,7 @@ const sources = [
 const Copilot = () => {
   const [chatActive, setChatActive] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [parts, setParts] = useState([]);
   const [input, setInput] = useState("");
   const chatEndRef = useRef(null);
   const { setChatInput } = useChatInput();
@@ -41,7 +43,7 @@ const Copilot = () => {
         sender: "Fin",
         type: "fin",
         researching: true,
-        content: `Please note: <br />We can only refund orders placed within the last 60 days, and your items must meet our requirements for condition to be returned. Please check when you placed your order before proceeding. <br /><br />Once I've checked these details, if everything looks OK, I will send a returns QR code which you can use to post the items back to us. Your refund will be automatically issued once you put it in the post.`,
+        content: `Please note: <br />We can only refund orders placed within the last 60 days, and your items must meet our requirements for condition to be returned. Please check when you placed your order before proceeding. {article}Once I've checked these details, if everything looks OK, I will send a returns QR code which you can use to post the items back to us. Your refund will be automatically issued once you put it in the post.`,
         sources,
         totalSources: 15,
       },
@@ -51,6 +53,7 @@ const Copilot = () => {
   return (
     <div>
       <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-r from-blue-200 to-pink-200 opacity-40 blur-2xl"></div>
+
       <div className="absolute right-0 bottom-4 left-0 mx-4">
         <div className="relative">
           {!chatActive ? (
@@ -89,9 +92,36 @@ const Copilot = () => {
                         Researching sources I found...
                       </div>
                       <div className="mb-3 flex flex-col gap-3 rounded-lg [background-image:linear-gradient(135deg,_#bfdbfe_0%,_#fce7f3_90%,_#ffedd5_100%)] [background-size:100%_100%] [background-position:0_0] px-4 py-4 text-sm">
-                        <div
-                          dangerouslySetInnerHTML={{ __html: msg.content }}
-                        />
+                        {msg.content.includes("{article}") ? (
+                          (() => {
+                            const parts = msg.content.split("{article}");
+                            return (
+                              <>
+                                {parts[0] && (
+                                  <span
+                                    dangerouslySetInnerHTML={{
+                                      __html: parts[0],
+                                    }}
+                                  />
+                                )}
+                                <ArticlePopup />
+                                {parts[1] && (
+                                  <span
+                                    dangerouslySetInnerHTML={{
+                                      __html: parts[1],
+                                    }}
+                                  />
+                                )}
+                              </>
+                            );
+                          })()
+                        ) : (
+                          <span
+                            dangerouslySetInnerHTML={{ __html: msg.content }}
+                          />
+                        )}
+
+                        {/* ADD TO COMPOSE BUTTON  */}
                         <Button
                           variant="outline"
                           className="mt-2 flex w-full gap-2 border-gray-300 bg-white/80 text-gray-700"
@@ -143,7 +173,7 @@ const Copilot = () => {
             className="h-12 bg-white pr-12"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            disabled={!chatActive}
+            // disabled={!chatActive}
           />
           <div
             className={`absolute right-3 bottom-1 -translate-y-1/2 ${
