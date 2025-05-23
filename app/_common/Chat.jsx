@@ -34,9 +34,9 @@ const Chat = () => {
           </h3> */}
           <div className="flex items-center gap-2">
             <ModeToggle />
-            <Button variant="outline" size="icon">
+            {/* <Button variant="outline" size="icon">
               <Command />
-            </Button>
+            </Button> */}
             <span>⌘K for actions</span>
           </div>
         </nav>
