@@ -67,7 +67,7 @@ const ChatContent = () => {
         </div>
 
         {/* INPUT  */}
-        <div className="absolute right-0 bottom-4 left-0 mx-4 shadow-xl">
+        <div className="absolute right-0 bottom-[12vh] left-0 mx-4 shadow-xl sm:bottom-4">
           <div className="relative">
             <Textarea
               value={chatInput}
@@ -81,8 +81,8 @@ const ChatContent = () => {
               <p className="text-sm font-semibold">Chat</p>
               <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
             </div>
-            <div className="absolute right-2 bottom-0 left-2 pb-2">
-              <div className="flex justify-between bg-white">
+            <div className="absolute right-2 bottom-0 left-2 bg-white pb-2">
+              <div className="flex justify-between">
                 <div className="flex items-center gap-2">
                   <Zap className="h-4 w-4 cursor-pointer text-gray-500" />
                   <Separator orientation="vertical" />
