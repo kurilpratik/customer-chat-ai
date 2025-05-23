@@ -23,6 +23,7 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
+import ChatContent from "./ChatContent";
 
 const Chat = () => {
   const { chatInput, setChatInput } = useChatInput();
@@ -83,164 +84,14 @@ const Chat = () => {
               ? `${selectedMessage.content.slice(0, 100)}...`
               : selectedMessage.content}
           </SheetDescription>
-          <div className="relative mx-4 h-screen w-full flex-3 py-2">
-            <nav className="mb-8 flex justify-between">
-              <h3 className="text-lg font-bold">
-                {selectedMessage.sender || selectedMessage.source}
-              </h3>
-              <div className="flex gap-2">
-                <Button variant="outline" size="icon">
-                  <Ellipsis />
-                </Button>
-                <ModeToggle />
-                <Button onClick={() => setSelectedMessage(null)}>
-                  <PanelBottomClose /> Close
-                </Button>
-              </div>
-            </nav>
-
-            {/* CHAT */}
-
-            <div className="flex flex-col gap-6 px-6">
-              {chats[index].map((message) => (
-                <div
-                  key={`index-${message.id}`}
-                  className={`flex gap-4 ${message.id % 2 === 0 ? "flex-row-reverse" : ""}`}
-                >
-                  {/* So that we don't have 2 same keys, we combine it with msg.id eg 3-1,3-2 */}
-                  <div
-                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full font-bold text-white ${message.color}`}
-                  >
-                    {message.sender.charAt(0)}
-                  </div>
-                  <div
-                    className={`rounded-xl p-4 ${message.id % 2 === 0 ? "bg-indigo-200" : "bg-gray-200"}`}
-                  >
-                    <p className="pb-2 text-sm font-medium dark:text-gray-800">
-                      {message.content}
-                    </p>
-                    <p className="text-sm">{message.time}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* INPUT  */}
-            <div className="absolute right-0 bottom-4 left-0 mx-4 shadow-xl">
-              <div className="relative">
-                <Textarea
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  type="text"
-                  placeholder="Use Cmd K for shortcuts"
-                  className="h-36 justify-start bg-white pt-9 pr-12"
-                />
-                <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2">
-                  <MessageSquareText className="h-4 w-4 cursor-pointer text-gray-500" />
-                  <p className="text-sm font-semibold">Chat</p>
-                  <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
-                </div>
-                <div className="absolute right-2 bottom-0 left-2 pb-2">
-                  <div className="flex justify-between bg-white">
-                    <div className="flex items-center gap-2">
-                      <Zap className="h-4 w-4 cursor-pointer text-gray-500" />
-                      <Separator orientation="vertical" />
-                      <Bookmark className="h-4 w-4 cursor-pointer text-gray-500" />
-                      <Smile className="h-4 w-4 cursor-pointer text-gray-500" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <p>Send</p>
-                      <Separator orientation="vertical" />
-                      <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ChatContent />
         </SheetContent>
       </Sheet>
     );
   }
 
   // On desktop, show the chat inline as before
-  return (
-    <div className="relative mx-4 h-screen w-full flex-3 py-2">
-      <nav className="mb-8 flex justify-between">
-        <h3 className="text-lg font-bold">
-          {selectedMessage.sender || selectedMessage.source}
-        </h3>
-        <div className="flex gap-2">
-          <Button variant="outline" size="icon">
-            <Ellipsis />
-          </Button>
-          <ModeToggle />
-          <Button onClick={() => setSelectedMessage(null)}>
-            <PanelBottomClose /> Close
-          </Button>
-        </div>
-      </nav>
-
-      {/* CHAT */}
-
-      <div className="flex flex-col gap-6 px-6">
-        {chats[index].map((message) => (
-          <div
-            key={`index-${message.id}`}
-            className={`flex gap-4 ${message.id % 2 === 0 ? "flex-row-reverse" : ""}`}
-          >
-            {/* So that we don't have 2 same keys, we combine it with msg.id eg 3-1,3-2 */}
-            <div
-              className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full font-bold text-white ${message.color}`}
-            >
-              {message.sender.charAt(0)}
-            </div>
-            <div
-              className={`rounded-xl p-4 ${message.id % 2 === 0 ? "bg-indigo-200" : "bg-gray-200"}`}
-            >
-              <p className="pb-2 text-sm font-medium dark:text-gray-800">
-                {message.content}
-              </p>
-              <p className="text-sm">{message.time}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* INPUT  */}
-      <div className="absolute right-0 bottom-4 left-0 mx-4 shadow-xl">
-        <div className="relative">
-          <Textarea
-            value={chatInput}
-            onChange={(e) => setChatInput(e.target.value)}
-            type="text"
-            placeholder="Use Cmd K for shortcuts"
-            className="h-36 justify-start bg-white pt-9 pr-12"
-          />
-          <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2">
-            <MessageSquareText className="h-4 w-4 cursor-pointer text-gray-500" />
-            <p className="text-sm font-semibold">Chat</p>
-            <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
-          </div>
-          <div className="absolute right-2 bottom-0 left-2 pb-2">
-            <div className="flex justify-between bg-white">
-              <div className="flex items-center gap-2">
-                <Zap className="h-4 w-4 cursor-pointer text-gray-500" />
-                <Separator orientation="vertical" />
-                <Bookmark className="h-4 w-4 cursor-pointer text-gray-500" />
-                <Smile className="h-4 w-4 cursor-pointer text-gray-500" />
-              </div>
-              <div className="flex items-center gap-2">
-                <p>Send</p>
-                <Separator orientation="vertical" />
-                <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <ChatContent />;
 };
 
 export default Chat;
