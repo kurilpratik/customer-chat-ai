@@ -95,11 +95,12 @@ const ChatContent = () => {
                   <Bookmark className="h-4 w-4 cursor-pointer text-gray-500" />
                   <Smile className="h-4 w-4 cursor-pointer text-gray-500" />
                 </div>
-                <div className="flex items-center gap-2">
+                {/* SEND BUTTON  */}
+                <Button variant={chatInput.trim() ? "default" : "outline"}>
                   <p>Send</p>
                   <Separator orientation="vertical" />
                   <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
-                </div>
+                </Button>
               </div>
             </div>
           </div>
