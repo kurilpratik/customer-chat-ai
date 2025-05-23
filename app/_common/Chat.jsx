@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 import ChatContent from "./ChatContent";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const Chat = () => {
   const { chatInput, setChatInput } = useChatInput();
@@ -31,16 +32,12 @@ const Chat = () => {
           {/* <h3 className="text-lg font-bold">
             {selectedMessage.sender || selectedMessage.source}
           </h3> */}
-          <div className="flex gap-2">
-            <Button variant="outline" size="icon">
-              <Ellipsis />
-            </Button>
+          <div className="flex items-center gap-2">
+            <ModeToggle />
             <Button variant="outline" size="icon">
               <Command />
             </Button>
-            <Button variant={selectedMessage ? "default" : "outline"}>
-              <PanelBottomClose /> Close
-            </Button>
+            <span>⌘K for actions</span>
           </div>
         </nav>
         <div className="flex h-full w-full flex-col items-center justify-center py-2 text-center text-gray-500">
