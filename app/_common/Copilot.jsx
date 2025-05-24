@@ -77,14 +77,28 @@ const Copilot = () => {
       <div className="absolute right-0 bottom-4 left-0 mx-4">
         <div className="relative">
           {!chatActive ? (
-            <div
-              className="suggested mb-2 cursor-pointer"
-              onClick={handleSuggestedClick}
-            >
-              <p className="inline-block rounded-md bg-white p-2 px-3 text-sm">
-                <span className="font-semibold">Suggested</span>💸
-                {SUGGESTED_QUESTIONS[0]}
-              </p>
+            // PLACEHOLDER & SUGGESTED PROMPT WHEN COPILOT NOT ACTIVE
+            <div>
+              <div className="flex h-[80dvh] flex-col items-center justify-center text-center">
+                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white">
+                  <span>F</span>
+                </div>
+                <h4 className="text-md font-semibold">
+                  Hi, I'm Fin AI Copilot
+                </h4>
+                <p className="text-sm text-gray-400">
+                  Ask me anything about this conversation
+                </p>
+              </div>
+              <div
+                className="suggested mb-2 cursor-pointer"
+                onClick={handleSuggestedClick}
+              >
+                <p className="inline-block rounded-md bg-white p-2 px-3 text-sm">
+                  <span className="font-semibold">Suggested</span>💸
+                  {SUGGESTED_QUESTIONS[0]}
+                </p>
+              </div>
             </div>
           ) : (
             <div className="hide-scrollbar my-2 flex h-[82dvh] flex-col gap-6 overflow-y-scroll rounded-md pr-4 sm:pt-0">
