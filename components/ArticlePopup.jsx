@@ -20,7 +20,7 @@ const ArticlePopup = ({ title, category, author, date, content }) => {
   return (
     <HoverCard>
       <HoverCardTrigger>
-        <div className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full bg-blue-800 text-xs text-white">
+        <div className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full bg-blue-800 text-xs text-white dark:bg-blue-600">
           1
         </div>
       </HoverCardTrigger>
@@ -38,7 +38,7 @@ const ArticlePopup = ({ title, category, author, date, content }) => {
         {/* ADD TO COMPOSE BUTTON  */}
         <Button
           variant="outline"
-          className="mt-2 flex w-full cursor-pointer gap-2 border-gray-300 bg-white/80 text-gray-700"
+          className="mt-2 flex w-full cursor-pointer gap-2 border-gray-300 bg-white/80 text-gray-700 dark:border-gray-500 dark:text-white"
           onClick={() =>
             setChatInput(msg.content.replace(/<br\s*\/?>/gi, "\n"))
           }

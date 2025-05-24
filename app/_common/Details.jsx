@@ -23,7 +23,7 @@ const Details = () => {
       <div className="flex flex-col gap-4">
         <div className="flex w-full justify-between sm:w-2/3">
           <p className="font-semibold text-gray-500">Assignee</p>
-          <div className="flex items-center gap-2.5 font-medium text-gray-600">
+          <div className="flex items-center gap-2.5 font-medium text-gray-600 dark:text-gray-300">
             <img
               src="https://randomuser.me/api/portraits/men/44.jpg"
               alt="You"
@@ -34,7 +34,7 @@ const Details = () => {
         </div>
         <div className="flex w-full justify-between sm:w-2/3">
           <p className="font-semibold text-gray-500">Team</p>
-          <div className="flex items-center gap-2.5 font-medium text-gray-600">
+          <div className="flex items-center gap-2.5 font-medium text-gray-600 dark:text-gray-300">
             <UsersRound className="h-6 w-6" />
             Unassigned
           </div>
@@ -58,26 +58,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
@@ -102,26 +114,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
@@ -146,26 +170,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
@@ -190,26 +226,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
@@ -234,26 +282,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
@@ -278,26 +338,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
@@ -322,26 +394,38 @@ const Details = () => {
         <CollapsibleContent className="flex flex-col gap-2 space-y-2">
           <div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <TicketSlash /> Tracker ticket
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <NotepadText /> Back-office tickets
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>
             <div className="text-md flex justify-between gap-2 py-2 font-semibold">
-              <div className="flex gap-2">
+              <div className="flex gap-2 dark:text-neutral-400">
                 <MoveUpRight /> Side Conversations
               </div>
-              <Button variant="secondary" size="icon" className="bg-gray-200">
+              <Button
+                variant="secondary"
+                size="icon"
+                className="bg-gray-200 dark:bg-neutral-900"
+              >
                 <Plus className="text-gray-600" />
               </Button>
             </div>

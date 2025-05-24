@@ -13,7 +13,7 @@ const Inbox = () => {
     <div className="flex-1.5 h-screen min-h-screen px-4 py-2 sm:min-w-[25%]">
       <nav className="mb-8 flex justify-between">
         <h2 className="pt-1 text-lg font-bold text-blue-500 sm:pt-0">
-          Beyond<span className="text-gray-600">Chats</span>
+          Beyond<span className="text-gray-600 dark:text-white">Chats</span>
         </h2>
         <div>
           <div className="flex items-center gap-2 sm:hidden">
@@ -29,11 +29,11 @@ const Inbox = () => {
       </nav>
 
       <div className="mb-4 flex justify-between font-semibold">
-        <div className="flex items-center">
-          <span className="pr-2">5</span> Open{" "}
+        <div className="flex items-center dark:text-neutral-400">
+          <span className="pr-2 dark:text-white">5</span> Open{" "}
           <ChevronDownIcon height={20} />{" "}
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center dark:text-neutral-400">
           Waiting Longest <ChevronDownIcon height={20} />{" "}
         </div>
       </div>
@@ -45,8 +45,10 @@ const Inbox = () => {
           <li
             key={message.id}
             onClick={() => setSelectedMessage(message)}
-            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-4 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 sm:gap-2 ${message.read ? "opacity-40" : ""} ${
-              selectedMessage?.id === message.id ? "bg-indigo-100" : ""
+            className={`relative ml-[-0.6rem] flex cursor-pointer items-center gap-4 rounded-xl px-4 py-2 pr-16 hover:bg-indigo-100 sm:gap-2 dark:hover:bg-indigo-800 ${message.read ? "opacity-40" : ""} ${
+              selectedMessage?.id === message.id
+                ? "bg-indigo-100 dark:bg-indigo-900"
+                : ""
             }`}
           >
             <div
@@ -65,12 +67,12 @@ const Inbox = () => {
                   : ""}
                 {message.source}
               </h3>
-              <p>
+              <p className="dark:text-gray-300">
                 {message.content.length > 26
                   ? `${message.content.slice(0, 26)}...`
                   : message.content}
               </p>
-              <p className="absolute right-4 bottom-4 text-xs font-semibold">
+              <p className="absolute right-4 bottom-4 text-xs font-semibold dark:text-gray-300">
                 {message.time}
               </p>
             </div>

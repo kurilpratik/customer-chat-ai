@@ -72,7 +72,7 @@ const Copilot = () => {
 
   return (
     <div>
-      <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-r from-blue-200 to-pink-200 opacity-40 blur-2xl"></div>
+      <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-r from-blue-200 to-pink-200 opacity-40 blur-2xl dark:from-blue-500 dark:to-pink-500 dark:opacity-15"></div>
 
       <div className="absolute right-0 bottom-4 left-0 mx-4">
         <div className="relative">
@@ -80,7 +80,7 @@ const Copilot = () => {
             // PLACEHOLDER & SUGGESTED PROMPT WHEN COPILOT NOT ACTIVE
             <div>
               <div className="flex h-[80dvh] flex-col items-center justify-center text-center">
-                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white">
+                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white dark:border dark:border-neutral-800">
                   <span>F</span>
                 </div>
                 <h4 className="text-md font-semibold">
@@ -94,7 +94,7 @@ const Copilot = () => {
                 className="suggested mb-2 cursor-pointer"
                 onClick={handleSuggestedClick}
               >
-                <p className="inline-block rounded-md bg-white p-2 px-3 text-sm">
+                <p className="inline-block rounded-md bg-white p-2 px-3 text-sm dark:bg-neutral-800">
                   <span className="font-semibold">Suggested</span>💸
                   {SUGGESTED_QUESTIONS[0]}
                 </p>
@@ -123,23 +123,25 @@ const Copilot = () => {
                         />
                         <div>
                           <div className="text-sm font-semibold">You</div>
-                          <div className="text-base">{msg.content}</div>
+                          <div className="text-base dark:text-gray-400">
+                            {msg.content}
+                          </div>
                         </div>
                       </div>
                     ) : (
                       <div className="flex items-start gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-black text-lg font-bold text-white dark:border dark:border-neutral-800">
                           <span>F</span>
                         </div>
                         {/* FINBOT MESSAGE  */}
                         <div className="flex-1">
                           <div className="text-sm font-semibold">Fin</div>
-                          <div className="mb-2 text-base text-gray-700">
+                          <div className="mb-2 text-base text-gray-700 dark:text-gray-400">
                             Researching sources I found...
                           </div>
                           {/* MESSAGE CONTENT  */}
                           <motion.div
-                            className="mb-3 flex flex-col gap-3 rounded-lg [background-image:linear-gradient(135deg,_#bfdbfe_0%,_#fce7f3_90%,_#ffedd5_100%)] [background-size:100%_100%] [background-position:0_0] px-4 py-4 text-sm"
+                            className="mb-3 flex flex-col gap-3 rounded-lg [background-image:linear-gradient(135deg,_#bfdbfe_0%,_#fce7f3_90%,_#ffedd5_100%)] [background-size:100%_100%] [background-position:0_0] px-4 py-4 text-sm dark:[background-image:linear-gradient(135deg,_#1e3a8a_0%,_#831843_90%,_#7c2d12_100%)]"
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2 }}
@@ -177,7 +179,7 @@ const Copilot = () => {
 
                             <Button
                               variant="outline"
-                              className="mt-2 flex w-full gap-2 border-gray-300 bg-white/80 text-gray-700"
+                              className="mt-2 flex w-full gap-2 border-gray-300 bg-white/80 text-gray-700 dark:border-gray-500 dark:text-white"
                               onClick={() =>
                                 setChatInput(
                                   msg.content.replace(/<br\s*\/?>/gi, "\n"),
@@ -207,10 +209,10 @@ const Copilot = () => {
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ delay: 0.5 + i * 0.1 }}
-                                  className="flex cursor-pointer items-center gap-2 rounded px-2 py-0.5 transition hover:bg-gray-100"
+                                  className="flex cursor-pointer items-center gap-2 rounded px-2 py-0.5 transition hover:bg-gray-100 dark:hover:bg-neutral-700"
                                 >
                                   <span className="text-lg">{src.icon}</span>
-                                  <span className="text-gray-700">
+                                  <span className="text-gray-700 dark:text-white">
                                     {src.title}
                                   </span>
                                 </motion.div>
@@ -219,7 +221,7 @@ const Copilot = () => {
                             <div className="mt-2">
                               <a
                                 href="#"
-                                className="text-sm font-medium text-blue-600 hover:underline"
+                                className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                               >
                                 See all &rarr;
                               </a>
@@ -237,7 +239,7 @@ const Copilot = () => {
           <Input
             type="text"
             placeholder="Ask a question..."
-            className="h-12 bg-white pr-12"
+            className="h-12 bg-white pr-12 dark:bg-neutral-800"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />

@@ -40,7 +40,7 @@ const ChatContent = () => {
   return (
     <div>
       <div className="relative h-screen w-full flex-3 px-2 py-1 sm:mx-4 sm:py-2">
-        <nav className="sticky top-0 mb-8 flex justify-between bg-white py-2 sm:relative sm:mx-4">
+        <nav className="sticky top-0 mb-8 flex justify-between bg-white py-2 sm:relative sm:mx-4 dark:bg-black">
           <h3 className="text-lg font-bold">
             {selectedMessage.sender || selectedMessage.source}
           </h3>
@@ -54,7 +54,7 @@ const ChatContent = () => {
             <Button variant="outline" size="icon">
               <PhoneCall />
             </Button>
-            <Button onClick={() => setSelectedMessage(null)}>
+            <Button onClick={() => setSelectedMessage(null)} variant="outline">
               <PanelBottomClose /> Close
             </Button>
           </div>
@@ -75,12 +75,12 @@ const ChatContent = () => {
                 {message.sender.charAt(0)}
               </div>
               <div
-                className={`rounded-xl p-4 ${message.id % 2 === 0 ? "bg-indigo-200" : "bg-gray-200"}`}
+                className={`rounded-xl p-4 ${message.id % 2 === 0 ? "bg-indigo-200 dark:bg-indigo-900" : "bg-gray-200 dark:bg-neutral-900"}`}
               >
-                <p className="pb-2 text-xs font-medium sm:text-sm dark:text-gray-800">
+                <p className="pb-2 text-xs font-medium sm:text-sm dark:text-white">
                   {message.content}
                 </p>
-                <p className="text-sm">{message.time}</p>
+                <p className="text-sm dark:opacity-70">{message.time}</p>
               </div>
             </div>
           ))}
@@ -109,12 +109,12 @@ const ChatContent = () => {
                 <SelectedTextPopup />
               </HoverCardContent>
             </HoverCard>
-            <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2">
+            <div className="absolute top-0 left-2 mt-1 flex items-center gap-2 bg-white py-2 dark:bg-neutral-900">
               <MessageSquareText className="h-4 w-4 cursor-pointer text-gray-500" />
               <p className="text-sm font-semibold">Chat</p>
               <ChevronDown className="h-4 w-4 cursor-pointer text-gray-500" />
             </div>
-            <div className="absolute right-2 bottom-0 left-2 bg-white pb-2">
+            <div className="absolute right-2 bottom-0 left-2 bg-white pb-2 dark:bg-neutral-900">
               <div className="flex justify-between">
                 <div className="flex items-center gap-2">
                   <Zap className="h-4 w-4 cursor-pointer text-gray-500" />

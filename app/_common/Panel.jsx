@@ -6,9 +6,9 @@ import Copilot from "./Copilot";
 
 const Panel = () => {
   return (
-    <div className="hide-scrollbar relative h-screen flex-2 overflow-y-scroll bg-gray-50">
+    <div className="hide-scrollbar relative h-screen flex-2 overflow-y-scroll bg-gray-50 dark:bg-neutral-950">
       <Tabs defaultValue="aicopilot" className="w-full">
-        <div className="sticky top-0 right-0 left-0 z-10 border-b-3 border-gray-200 bg-white">
+        <div className="sticky top-0 right-0 left-0 z-10 border-b-3 border-gray-200 bg-white dark:border-gray-950 dark:bg-neutral-900">
           <TabsList className="border-b border-gray-200 px-8">
             <TabsTrigger value="aicopilot" className="text-md">
               {/* <Store /> */}
