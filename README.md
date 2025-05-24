@@ -5,6 +5,7 @@ A customer support chat interface powered by AI, built with Next.js, Tailwind CS
 ### Live Demo
 
 🔗 [Live Demo](https://beyond-chats-ai.vercel.app)
+📽️ [Video Demo](https://www.loom.com/share/9ec14eacae474415a1337bb232d01b5f?sid=d4c00c38-5b47-4750-ab96-80620367ffab)
 
 ### Tech Stack
 
