@@ -22,7 +22,9 @@ const Inbox = () => {
               <SidebarTrigger />
             </Button>
           </div>
-          <SidebarTrigger className="hidden sm:block" />
+          <div className="hidden sm:block">
+            <SidebarTrigger />
+          </div>
         </div>
       </nav>
 
